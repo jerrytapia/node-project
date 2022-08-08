@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const storeController = require('../controllers/storeController');
 
-router.get('/', storeController.homePage)
+//because myMiddleware has the next() in its function body, it will proceed to the next function after the comma
+router.get('/', storeController.myMiddleware, storeController.homePage)
 
 
 module.exports = router;
